@@ -71,6 +71,9 @@ impl TcpStream {
             inner: IoSource::new(stream),
         }
     }
+    pub fn to_std() -> net::TcpTream {
+        inner.into_inner()
+    }
 
     /// Returns the socket address of the remote peer of this TCP connection.
     pub fn peer_addr(&self) -> io::Result<SocketAddr> {
